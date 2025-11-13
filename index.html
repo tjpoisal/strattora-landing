@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strattora IQ³ - AI-Powered Salon Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Strattora IQ³ - AI Salon Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,28 +13,26 @@
         }
 
         :root {
-            --primary: #D4AF37;
-            --primary-dark: #B89F2E;
-            --accent: #E8D7C3;
-            --dark-bg: #0a0a0a;
-            --text: #ffffff;
-            --text-muted: #b0b0b0;
-            --glass-light: rgba(255, 255, 255, 0.1);
-            --border-glass: rgba(212, 175, 55, 0.3);
+            --charcoal: #1a1a1a;
+            --charcoal-dark: #0f0f0f;
+            --charcoal-light: #2d2d2d;
+            --pastel-lavender: #A78BFA;
+            --pastel-mint: #6EE7B7;
+            --pastel-peach: #FCD34D;
+            --pastel-sky: #22D3EE;
+            --glass-white: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1410 50%, #0d0d0d 100%);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Syne', sans-serif;
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-dark) 100%);
+            color: var(--charcoal);
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -46,75 +44,49 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(232, 215, 195, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 30%, rgba(167, 139, 250, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(110, 231, 183, 0.05) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
             position: relative;
             z-index: 1;
         }
 
+        /* Frosted Glass */
         .glass {
             background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 20px;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
         }
 
-        .glass-card {
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+        .glass-sm {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
-            }
-        }
-
+        /* Header */
         header {
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 20px 0;
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-            animation: fadeInDown 0.8s ease-out;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        header.glass {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(30px);
         }
 
         nav {
@@ -125,93 +97,115 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text);
+            letter-spacing: -0.5px;
+            color: #fff;
         }
 
         .logo span {
-            color: var(--primary);
-            font-size: 28px;
+            color: var(--pastel-lavender);
+            font-size: 24px;
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 48px;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--pastel-lavender);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pastel-lavender);
+            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-cta {
             display: flex;
-            gap: 12px;
+            gap: 16px;
         }
 
         .btn {
             padding: 12px 28px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            color: #fff;
+            font-size: 13px;
             font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
             letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            font-family: 'Syne', sans-serif;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: #000;
-            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.4);
+            background: var(--pastel-lavender);
+            border-color: var(--pastel-lavender);
+            color: var(--charcoal);
         }
 
         .btn-primary:hover {
+            background: #b8a0f0;
+            border-color: #b8a0f0;
             transform: translateY(-2px);
-            box-shadow: 0 12px 48px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 12px 32px rgba(167, 139, 250, 0.3);
         }
 
         .btn-secondary {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: var(--text);
+            backdrop-filter: blur(20px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.15);
-            border-color: var(--primary);
-            color: var(--primary);
+            border-color: var(--pastel-lavender);
+            color: var(--pastel-lavender);
         }
 
+        /* Hero */
         .hero {
-            padding: 120px 0;
+            padding: 140px 0 100px;
             text-align: center;
-            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 72px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-            line-height: 1.1;
+            font-size: 80px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 32px;
+            color: #fff;
         }
 
-        .hero .gradient-text {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        .hero .highlight {
+            background: linear-gradient(135deg, var(--pastel-lavender) 0%, var(--pastel-mint) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -219,413 +213,300 @@
 
         .hero p {
             font-size: 18px;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 40px;
-            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 720px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         .hero-cta {
             display: flex;
             gap: 20px;
             justify-content: center;
-            margin-bottom: 100px;
+            margin-bottom: 120px;
         }
 
-        .demo-btn {
-            animation: glow 3s ease-in-out infinite;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeInUp 0.4s ease-out;
-        }
-
-        .modal-content {
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 20px;
-            width: 90%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 50px;
-            position: relative;
-        }
-
-        .close {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--primary);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .close:hover {
-            color: var(--accent);
-            transform: scale(1.2);
-        }
-
-        .modal h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            margin-bottom: 30px;
-            color: var(--text);
-        }
-
-        .demo-tabs {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding-bottom: 20px;
-        }
-
-        .demo-tab {
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 8px;
-            color: var(--text-muted);
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .demo-tab.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: #000;
-            border-color: var(--primary);
-        }
-
-        .demo-tab:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .demo-content {
-            display: none;
-            animation: fadeInUp 0.4s ease-out;
-        }
-
-        .demo-content.active {
-            display: block;
-        }
-
-        .demo-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 8px;
-            color: var(--text);
+        .btn-lg {
+            padding: 14px 36px;
             font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-        }
-
-        .demo-output {
-            background: rgba(76, 175, 80, 0.1);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-            color: #4CAF50;
-            line-height: 1.8;
-            display: none;
-            grid-column: 1 / -1;
-        }
-
-        .demo-output.show {
-            display: block;
-            animation: fadeInUp 0.4s ease-out;
-        }
-
-        .demo-submit {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: #000;
-            padding: 14px 32px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-
-        .demo-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
-        }
-
+        /* Features Grid */
         .features {
-            padding: 100px 0;
+            padding: 120px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .section-header {
+        .section-label {
             text-align: center;
-            margin-bottom: 80px;
-            animation: fadeInUp 1s ease-out 0.3s both;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pastel-lavender);
+            margin-bottom: 24px;
+            font-weight: 700;
         }
 
-        .section-header h2 {
+        .section-title {
+            text-align: center;
             font-family: 'Playfair Display', serif;
             font-size: 56px;
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-weight: 800;
             letter-spacing: -1px;
+            margin-bottom: 20px;
+            color: #fff;
         }
 
-        .section-header p {
+        .section-desc {
+            text-align: center;
             font-size: 18px;
-            color: var(--text-muted);
-            max-width: 550px;
-            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin: 0 auto 80px;
+            line-height: 1.6;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
+            gap: 28px;
+            margin-bottom: 80px;
         }
 
         .feature-card {
-            padding: 40px;
-            transition: all 0.4s;
-            animation: fadeInUp 0.8s ease-out both;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px 32px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             cursor: pointer;
         }
 
-        .feature-card:nth-child(1) { animation-delay: 0.1s; }
-        .feature-card:nth-child(2) { animation-delay: 0.2s; }
-        .feature-card:nth-child(3) { animation-delay: 0.3s; }
-        .feature-card:nth-child(4) { animation-delay: 0.4s; }
-        .feature-card:nth-child(5) { animation-delay: 0.5s; }
-        .feature-card:nth-child(6) { animation-delay: 0.6s; }
-
         .feature-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 60px rgba(167, 139, 250, 0.15);
         }
 
         .feature-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
+            font-size: 48px;
+            margin-bottom: 24px;
             display: block;
         }
 
         .feature-card h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
+            letter-spacing: -0.3px;
             margin-bottom: 12px;
-            color: var(--text);
+            color: #fff;
         }
 
         .feature-card p {
             font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+            font-weight: 400;
         }
 
+        /* Lexxi Section */
         .lexxi {
             padding: 100px 60px;
-            margin: 100px 0;
-            animation: fadeInUp 1s ease-out 0.4s both;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 80px;
         }
 
         .lexxi h2 {
             font-family: 'Playfair Display', serif;
             font-size: 48px;
-            margin-bottom: 30px;
+            font-weight: 800;
             letter-spacing: -1px;
+            margin-bottom: 28px;
+            color: #fff;
         }
 
         .lexxi p {
             font-size: 16px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 24px;
+            line-height: 1.7;
         }
 
-        .lexxi-features {
-            list-style: none;
-            margin-top: 30px;
+        .lexxi-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
         }
 
-        .lexxi-features li {
-            padding: 12px 0;
-            padding-left: 30px;
-            position: relative;
-            font-size: 15px;
-            color: var(--text-muted);
+        .lexxi-item {
+            display: flex;
+            gap: 16px;
         }
 
-        .lexxi-features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
+        .lexxi-item::before {
+            content: '✓';
+            color: var(--pastel-mint);
+            font-weight: 700;
             font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
+        .lexxi-item p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        /* Pricing */
         .pricing {
-            padding: 100px 0;
-            animation: fadeInUp 1s ease-out 0.5s both;
+            padding: 120px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 32px;
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
         .pricing-card {
-            padding: 40px;
-            transition: all 0.4s;
+            padding: 48px 40px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
+            border-radius: 20px;
         }
 
         .pricing-card.featured {
             transform: scale(1.05);
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.25);
+        }
+
+        .pricing-card:not(.featured) {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .pricing-card:hover {
             transform: translateY(-8px);
         }
 
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
         .pricing-badge {
             position: absolute;
-            top: -15px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: #000;
-            padding: 8px 16px;
+            top: -14px;
+            right: 24px;
+            background: var(--pastel-lavender);
+            color: var(--charcoal);
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .pricing-name {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            color: #fff;
         }
 
         .pricing-price {
             font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            margin: 20px 0;
-            color: var(--primary);
+            font-size: 52px;
+            font-weight: 800;
+            margin: 16px 0;
+            color: var(--pastel-lavender);
+        }
+
+        .pricing-period {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 32px;
         }
 
         .pricing-features {
             list-style: none;
-            margin: 30px 0;
+            margin-bottom: 32px;
         }
 
         .pricing-features li {
-            padding: 10px 0;
-            padding-left: 24px;
-            position: relative;
+            padding: 12px 0;
             font-size: 14px;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .pricing-features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
+        .pricing-features li::before {
+            content: '✓ ';
+            color: var(--pastel-mint);
+            font-weight: 700;
         }
 
+        .pricing-cta {
+            width: 100%;
+        }
+
+        /* CTA */
         .cta {
-            padding: 80px 60px;
+            padding: 100px 60px;
             text-align: center;
-            margin: 100px 0;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .cta h2 {
             font-family: 'Playfair Display', serif;
             font-size: 48px;
-            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+            color: #fff;
         }
 
         .cta p {
             font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 32px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        /* Footer */
         footer {
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
-            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 80px 0 60px;
             text-align: center;
-            color: var(--text-muted);
-            margin-top: 100px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 48px; }
-            .section-header h2 { font-size: 36px; }
+            .section-title { font-size: 36px; }
             .pricing-card.featured { transform: scale(1); }
-            .modal-content { padding: 30px; }
-            .demo-form { grid-template-columns: 1fr; }
+            .pricing-card.featured:hover { transform: translateY(-8px); }
+            .container { padding: 0 20px; }
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section { animation: fadeIn 0.6s ease-out; }
     </style>
 </head>
 <body>
@@ -635,12 +516,12 @@
                 <div class="logo">Strattora <span>IQ³</span></div>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#lexxi">Lexxi AI</a></li>
+                    <li><a href="#lexxi">Lexxi</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                 </ul>
                 <div class="nav-cta">
                     <button class="btn btn-secondary">Sign In</button>
-                    <button class="btn btn-primary">Start Free Trial</button>
+                    <button class="btn btn-primary">Free Trial</button>
                 </div>
             </nav>
         </div>
@@ -648,52 +529,51 @@
 
     <section class="hero">
         <div class="container">
-            <h1>The <span class="gradient-text">AI-Powered</span> Salon<br>Management Platform</h1>
-            <p>Strattora IQ³ combines intelligent scheduling, advanced inventory management, comprehensive CRM, and professional business analytics—all powered by Lexxi, our AI assistant with 400+ professional beauty brands expertise.</p>
+            <h1>The <span class="highlight">AI-Powered</span> Salon Management Platform</h1>
+            <p>Strattora IQ³ streamlines everything—scheduling, inventory, client management, and analytics. Powered by Lexxi, our AI assistant fine-tuned on 400+ professional beauty brands.</p>
             <div class="hero-cta">
-                <button class="btn btn-primary">Start Free Trial</button>
-                <button class="btn btn-secondary demo-btn" onclick="openDemo()">Watch Demo</button>
+                <button class="btn btn-primary btn-lg">Start Free Trial</button>
+                <button class="btn btn-secondary btn-lg">Watch Demo</button>
             </div>
         </div>
     </section>
 
     <section class="features" id="features">
         <div class="container">
-            <div class="section-header">
-                <h2>Powerful Features</h2>
-                <p>Everything your salon needs to thrive, powered by intelligent AI integration</p>
-            </div>
+            <div class="section-label">Platform Features</div>
+            <h2 class="section-title">Everything You Need</h2>
+            <p class="section-desc">Strattora combines intelligent scheduling, inventory management, client CRM, and business analytics—all in one beautiful platform.</p>
 
             <div class="features-grid">
-                <div class="feature-card glass-card">
+                <div class="feature-card glass-sm">
                     <span class="feature-icon">📅</span>
                     <h3>Smart Scheduling</h3>
-                    <p>AI-optimized appointments with automatic conflict detection and smart staff allocation.</p>
+                    <p>AI-optimized appointments with conflict detection and intelligent staff allocation.</p>
                 </div>
-                <div class="feature-card glass-card">
+                <div class="feature-card glass-sm">
                     <span class="feature-icon">📦</span>
-                    <h3>Inventory Management</h3>
-                    <p>Track 400+ professional brands with automated stock alerts and barcode scanning.</p>
+                    <h3>Inventory</h3>
+                    <p>Track 400+ professional brands with automated alerts and barcode scanning.</p>
                 </div>
-                <div class="feature-card glass-card">
+                <div class="feature-card glass-sm">
                     <span class="feature-icon">👥</span>
-                    <h3>Advanced CRM</h3>
-                    <p>Build lasting client relationships with detailed profiles and service history.</p>
+                    <h3>Client CRM</h3>
+                    <p>Detailed profiles with service history, preferences, and engagement tracking.</p>
                 </div>
-                <div class="feature-card glass-card">
+                <div class="feature-card glass-sm">
                     <span class="feature-icon">💰</span>
-                    <h3>Financial Analytics</h3>
-                    <p>Real-time revenue tracking and comprehensive financial forecasting.</p>
+                    <h3>Analytics</h3>
+                    <p>Real-time revenue tracking, profit margins, and financial forecasting.</p>
                 </div>
-                <div class="feature-card glass-card">
+                <div class="feature-card glass-sm">
                     <span class="feature-icon">🎓</span>
-                    <h3>Professional Knowledge</h3>
-                    <p>Access to formulation guides and product technical data across 400+ brands.</p>
+                    <h3>Knowledge Base</h3>
+                    <p>Formulation guides, product data, and procedures across 400+ brands.</p>
                 </div>
-                <div class="feature-card glass-card">
+                <div class="feature-card glass-sm">
                     <span class="feature-icon">🤖</span>
-                    <h3>Lexxi AI Assistant</h3>
-                    <p>LLAMA 3.1 fine-tuned on beauty industry expertise for personalized recommendations.</p>
+                    <h3>Lexxi AI</h3>
+                    <p>AI assistant fine-tuned on beauty industry expertise for recommendations.</p>
                 </div>
             </div>
         </div>
@@ -701,33 +581,34 @@
 
     <section class="lexxi glass" id="lexxi">
         <div class="container">
-            <h2>Meet Lexxi: Your AI Beauty Expert</h2>
-            <p>Lexxi is an advanced AI assistant fine-tuned with comprehensive knowledge of 400+ professional salon brands, formulation guides, technical procedures, and industry best practices.</p>
-            <ul class="lexxi-features">
-                <li>Instant product recommendations based on client needs</li>
-                <li>Formulation guidance and mixing instructions</li>
-                <li>Service procedure optimization</li>
-                <li>Brand compatibility analysis</li>
-                <li>Compliance and regulation guidance</li>
-                <li>Marketing content generation</li>
-                <li>Staff training materials</li>
-                <li>Business strategy recommendations</li>
-            </ul>
+            <h2>Meet Lexxi, Your AI Beauty Expert</h2>
+            <p>Lexxi is an advanced AI assistant fine-tuned with comprehensive knowledge of 400+ professional salon brands, formulation guides, procedures, and industry best practices.</p>
+            
+            <div class="lexxi-list">
+                <div class="lexxi-item"><p>Product recommendations for any client need</p></div>
+                <div class="lexxi-item"><p>Formulation guidance and mixing instructions</p></div>
+                <div class="lexxi-item"><p>Service procedure optimization</p></div>
+                <div class="lexxi-item"><p>Brand compatibility analysis</p></div>
+                <div class="lexxi-item"><p>Compliance and regulation guidance</p></div>
+                <div class="lexxi-item"><p>Business strategy recommendations</p></div>
+                <div class="lexxi-item"><p>Marketing content generation</p></div>
+                <div class="lexxi-item"><p>Staff training materials</p></div>
+            </div>
         </div>
     </section>
 
     <section class="pricing" id="pricing">
         <div class="container">
-            <div class="section-header">
-                <h2>Transparent Pricing</h2>
-                <p>Plans for salons of all sizes</p>
-            </div>
+            <div class="section-label">Transparent Pricing</div>
+            <h2 class="section-title">Plans for Every Salon</h2>
+            <p class="section-desc">Simple pricing with no hidden fees. Choose the plan that fits your business.</p>
 
             <div class="pricing-grid">
-                <div class="pricing-card glass-card">
+                <div class="pricing-card glass-sm">
                     <div class="pricing-name">Starter</div>
-                    <div class="pricing-price">$49<span style="font-size: 16px; color: var(--text-muted);">/mo</span></div>
-                    <button class="btn btn-secondary" style="width: 100%; margin: 20px 0;">Get Started</button>
+                    <div class="pricing-price">$49</div>
+                    <div class="pricing-period">/month</div>
+                    <button class="btn btn-secondary pricing-cta">Get Started</button>
                     <ul class="pricing-features">
                         <li>500 clients</li>
                         <li>Basic scheduling</li>
@@ -736,34 +617,38 @@
                     </ul>
                 </div>
 
-                <div class="pricing-card glass-card featured">
+                <div class="pricing-card glass-sm featured">
                     <div class="pricing-badge">Most Popular</div>
                     <div class="pricing-name">Professional</div>
-                    <div class="pricing-price">$149<span style="font-size: 16px; color: var(--text-muted);">/mo</span></div>
-                    <button class="btn btn-primary" style="width: 100%; margin: 20px 0;">Start Trial</button>
+                    <div class="pricing-price">$149</div>
+                    <div class="pricing-period">/month</div>
+                    <button class="btn btn-primary pricing-cta">Start Free Trial</button>
                     <ul class="pricing-features">
                         <li>Unlimited clients</li>
-                        <li>5 users</li>
+                        <li>5 user accounts</li>
                         <li>Smart scheduling</li>
                         <li>Unlimited inventory</li>
                         <li>Lexxi AI (100 queries)</li>
-                        <li>Analytics</li>
+                        <li>Advanced analytics</li>
                         <li>Mobile apps</li>
+                        <li>Phone support</li>
                     </ul>
                 </div>
 
-                <div class="pricing-card glass-card">
+                <div class="pricing-card glass-sm">
                     <div class="pricing-name">Enterprise</div>
-                    <div class="pricing-price">$399<span style="font-size: 16px; color: var(--text-muted);">/mo</span></div>
-                    <button class="btn btn-secondary" style="width: 100%; margin: 20px 0;">Contact Sales</button>
+                    <div class="pricing-price">$399</div>
+                    <div class="pricing-period">/month</div>
+                    <button class="btn btn-secondary pricing-cta">Contact Sales</button>
                     <ul class="pricing-features">
                         <li>Everything in Pro</li>
                         <li>Unlimited users</li>
                         <li>Multi-location</li>
-                        <li>Unlimited Lexxi</li>
+                        <li>Unlimited Lexxi AI</li>
                         <li>Custom integrations</li>
-                        <li>Account manager</li>
-                        <li>White-label</li>
+                        <li>Dedicated account manager</li>
+                        <li>White-label options</li>
+                        <li>Priority support</li>
                     </ul>
                 </div>
             </div>
@@ -775,245 +660,16 @@
             <h2>Ready to Transform Your Salon?</h2>
             <p>Join salons already using Strattora to streamline operations and grow their business.</p>
             <div class="hero-cta">
-                <button class="btn btn-primary">Start Free 14-Day Trial</button>
-                <button class="btn btn-secondary">Schedule Demo</button>
+                <button class="btn btn-primary btn-lg">Start Free Trial</button>
+                <button class="btn btn-secondary btn-lg">Schedule Demo</button>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Strattora IQ³. All rights reserved. | Empowering salons worldwide with AI-powered management.</p>
+            <p>&copy; 2024 Strattora IQ³. Empowering beauty professionals worldwide.</p>
         </div>
     </footer>
-
-    <div id="demoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeDemo()">&times;</span>
-            <h2>Try Strattora IQ³</h2>
-            
-            <div class="demo-tabs">
-                <button class="demo-tab active" onclick="switchTab('scheduling')">📅 Scheduling</button>
-                <button class="demo-tab" onclick="switchTab('inventory')">📦 Inventory</button>
-                <button class="demo-tab" onclick="switchTab('crm')">👥 CRM</button>
-                <button class="demo-tab" onclick="switchTab('analytics')">📊 Analytics</button>
-                <button class="demo-tab" onclick="switchTab('lexxi')">🤖 Lexxi AI</button>
-            </div>
-
-            <div id="scheduling" class="demo-content active">
-                <h3>Smart Appointment Scheduling</h3>
-                <div class="demo-form">
-                    <div class="form-group">
-                        <label>Stylist</label>
-                        <select id="stylist">
-                            <option>Sarah - Color Specialist</option>
-                            <option>James - Cutting Expert</option>
-                            <option>Maria - Styling</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Service</label>
-                        <select id="service">
-                            <option>Haircut - $45</option>
-                            <option>Color - $85</option>
-                            <option>Treatment - $55</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Preferred Date</label>
-                        <input type="date" id="bookDate">
-                    </div>
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" id="clientName" placeholder="Your name">
-                    </div>
-                    <button class="demo-submit" onclick="bookAppointment()">Book Appointment</button>
-                    <div class="demo-output" id="scheduling-output"></div>
-                </div>
-            </div>
-
-            <div id="inventory" class="demo-content">
-                <h3>Inventory Management</h3>
-                <div class="demo-form">
-                    <div class="form-group">
-                        <label>Product Name</label>
-                        <input type="text" id="productName" placeholder="e.g., Redken Shampoo" value="Redken All Soft Shampoo">
-                    </div>
-                    <div class="form-group">
-                        <label>Current Stock</label>
-                        <input type="number" id="currentStock" value="42" min="0">
-                    </div>
-                    <div class="form-group">
-                        <label>Reorder Level</label>
-                        <input type="number" id="reorderLevel" value="15" min="0">
-                    </div>
-                    <div class="form-group">
-                        <label>Unit Price</label>
-                        <input type="text" id="unitPrice" value="$12.50">
-                    </div>
-                    <button class="demo-submit" onclick="updateInventory()">Update Stock</button>
-                    <div class="demo-output" id="inventory-output"></div>
-                </div>
-            </div>
-
-            <div id="crm" class="demo-content">
-                <h3>Client Relationship Management</h3>
-                <div class="demo-form">
-                    <div class="form-group">
-                        <label>Client Name</label>
-                        <input type="text" id="crmName" placeholder="Name" value="Sarah Johnson">
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" id="crmEmail" placeholder="Email" value="sarah@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Preferred Service</label>
-                        <select id="preferredService">
-                            <option>Color Services</option>
-                            <option>Cutting</option>
-                            <option>Styling</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Last Visit</label>
-                        <input type="text" id="lastVisit" value="7 days ago">
-                    </div>
-                    <button class="demo-submit" onclick="saveClient()">Save Client & Send Follow-up</button>
-                    <div class="demo-output" id="crm-output"></div>
-                </div>
-            </div>
-
-            <div id="analytics" class="demo-content">
-                <h3>Business Analytics</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px;">
-                    <div class="glass-card" style="padding: 20px; text-align: center;">
-                        <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 10px;">TODAY'S REVENUE</div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 40px; color: var(--primary); font-weight: 700;">$2,340</div>
-                        <div style="color: var(--text-muted); font-size: 12px; margin-top: 8px;">+18% vs yesterday</div>
-                    </div>
-                    <div class="glass-card" style="padding: 20px; text-align: center;">
-                        <div style="color: var(--text-muted); font-size: 14px; margin-bottom: 10px;">APPOINTMENTS</div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 40px; color: var(--primary); font-weight: 700;">14/16</div>
-                        <div style="color: var(--text-muted); font-size: 12px; margin-top: 8px;">87.5% capacity</div>
-                    </div>
-                </div>
-                <button class="demo-submit" onclick="generateReport()">Generate Full Report</button>
-                <div class="demo-output" id="analytics-output"></div>
-            </div>
-
-            <div id="lexxi" class="demo-content">
-                <h3>Lexxi AI Assistant</h3>
-                <div class="demo-form">
-                    <div class="form-group">
-                        <label>Ask Lexxi anything about beauty business</label>
-                        <textarea id="lexxiQuery" placeholder="e.g., 'What products work best for blonde balayage?'" style="min-height: 100px; resize: vertical;"></textarea>
-                    </div>
-                    <button class="demo-submit" onclick="queryLexxi()">Ask Lexxi</button>
-                    <div class="demo-output" id="lexxi-output"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openDemo() {
-            document.getElementById('demoModal').classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeDemo() {
-            document.getElementById('demoModal').classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-
-        function switchTab(tab) {
-            document.querySelectorAll('.demo-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.demo-tab').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.demo-output').forEach(el => el.classList.remove('show'));
-            
-            document.getElementById(tab).classList.add('active');
-            event.target.classList.add('active');
-        }
-
-        function bookAppointment() {
-            const stylist = document.getElementById('stylist').value;
-            const service = document.getElementById('service').value;
-            const date = document.getElementById('bookDate').value;
-            const name = document.getElementById('clientName').value;
-
-            if (!date || !name) {
-                alert('Please fill in all fields');
-                return;
-            }
-
-            const output = document.getElementById('scheduling-output');
-            output.classList.add('show');
-            output.innerHTML = `✓ Appointment booked!<br><br>
-                <strong>Client:</strong> ${name}<br>
-                <strong>Stylist:</strong> ${stylist}<br>
-                <strong>Service:</strong> ${service}<br>
-                <strong>Date:</strong> ${date}<br><br>
-                Confirmation email sent!`;
-        }
-
-        function updateInventory() {
-            const product = document.getElementById('productName').value;
-            const stock = document.getElementById('currentStock').value;
-            const reorder = document.getElementById('reorderLevel').value;
-
-            const output = document.getElementById('inventory-output');
-            output.classList.add('show');
-            output.innerHTML = `✓ Inventory updated<br><br>
-                <strong>Product:</strong> ${product}<br>
-                <strong>Current Stock:</strong> ${stock} units<br>
-                <strong>Reorder Level:</strong> ${reorder} units<br><br>
-                ${stock <= reorder ? '⚠ LOW STOCK - Reorder recommended' : '✓ Stock level healthy'}`;
-        }
-
-        function saveClient() {
-            const name = document.getElementById('crmName').value;
-            const email = document.getElementById('crmEmail').value;
-
-            const output = document.getElementById('crm-output');
-            output.classList.add('show');
-            output.innerHTML = `✓ Client profile saved<br><br>
-                <strong>Name:</strong> ${name}<br>
-                <strong>Email:</strong> ${email}<br><br>
-                Follow-up scheduled & personalized recommendations sent!`;
-        }
-
-        function generateReport() {
-            const output = document.getElementById('analytics-output');
-            output.classList.add('show');
-            output.innerHTML = `✓ Report generated!<br><br>
-                <strong>Today's Summary:</strong><br>
-                • Revenue: $2,340 (+18%)<br>
-                • Appointments: 14/16 booked<br>
-                • Top Service: Color ($975 revenue)<br>
-                • Client Retention: 92%<br><br>
-                Report emailed to your inbox.`;
-        }
-
-        function queryLexxi() {
-            const query = document.getElementById('lexxiQuery').value;
-            if (!query) {
-                alert('Please ask a question');
-                return;
-            }
-
-            const output = document.getElementById('lexxi-output');
-            output.classList.add('show');
-            output.innerHTML = `✓ <strong>Lexxi:</strong> That's a great question about your salon business! Based on professional beauty industry standards and your data, here's my recommendation...<br><br>
-                For blonde balayage, I recommend using Wella T18 toner with 20 volume developer (1:2 ratio) for optimal lift without damage. Pair with Olaplex No.3 weekly treatments for client maintenance.`;
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('demoModal');
-            if (event.target == modal) {
-                closeDemo();
-            }
-        }
-    </script>
 </body>
 </html>
