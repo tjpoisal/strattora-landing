@@ -1,0 +1,16 @@
+{
+  "name": "strattora-landing",
+  "version": 2,
+  "buildCommand": "echo 'Static site'",
+  "outputDirectory": ".",
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "SITE_NAME": "Strattora IQ³",
+    "SITE_URL": "https://strattora.com"
+  }
+}
